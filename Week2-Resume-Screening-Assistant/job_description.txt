@@ -1,0 +1,42 @@
+Job Title: Junior Data Analyst / Python Developer
+
+Company: SafeX Solutions
+
+Job Description:
+We are looking for a Junior Data Analyst / Python Developer to join our growing
+analytics team. The ideal candidate will help clean, analyze, and visualize data,
+build simple automation scripts, and support machine learning projects.
+
+Responsibilities:
+- Write clean, efficient Python code for data processing and analysis
+- Build and maintain dashboards and reports using pandas and visualization tools
+- Work with SQL databases to extract and transform data
+- Assist in building and evaluating basic machine learning models
+- Collaborate with cross-functional teams to understand data requirements
+- Document code and analysis clearly for non-technical stakeholders
+
+Required Skills:
+- Python
+- pandas
+- SQL
+- data visualization (matplotlib, seaborn, or similar)
+- Excel
+- statistics
+- communication skills
+
+Preferred Skills (nice to have):
+- machine learning
+- scikit-learn
+- Power BI or Tableau
+- Git
+- data cleaning
+- API integration
+
+Qualifications:
+- Bachelor's degree in Computer Science, Data Science, Statistics, or related field
+  (or currently pursuing one)
+- 0-2 years of relevant experience or strong internship/project portfolio
+- Strong problem-solving and analytical thinking
+
+Location: Remote / Hybrid
+Employment Type: Internship / Entry-level Full-time
