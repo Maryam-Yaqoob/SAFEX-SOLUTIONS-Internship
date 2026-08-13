@@ -1,0 +1,4 @@
+comment,compound_score,sentiment
+I'm really disappointed with the delayed response time this week.,-0.6478,Negative
+"It's fine, average service, wouldn't say I'm impressed or disappointed.",-0.5932,Negative
+"I am extremely frustrated, we've reported this bug three times now.",-0.5709,Negative

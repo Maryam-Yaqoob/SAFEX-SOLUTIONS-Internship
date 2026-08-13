@@ -1,0 +1,26 @@
+comment,compound_score,sentiment
+"The support team resolved my issue within minutes, amazing service!",0.8172,Positive
+I'm really disappointed with the delayed response time this week.,-0.6478,Negative
+"The product works exactly as described, very satisfied.",0.4754,Positive
+Customer service was rude and unhelpful during my last call.,-0.4588,Negative
+"It's an okay experience, nothing special but does the job.",-0.0462,Neutral
+"Absolutely love the new dashboard update, so much easier to use!",0.8344,Positive
+The billing system charged me twice and no one has fixed it yet.,-0.4588,Negative
+"Decent product overall, though the setup process was confusing.",-0.2263,Negative
+Your team went above and beyond to help us migrate our data. Thank you!,0.6696,Positive
+The app keeps crashing every time I try to export a report.,0.0,Neutral
+Support responded quickly but the solution didn't actually fix my problem.,0.0644,Positive
+"Great value for money, would definitely recommend to other businesses.",0.8934,Positive
+"I've had a mediocre experience so far, some features feel unfinished.",0.0,Neutral
+This is the worst customer support experience I've ever had.,-0.34,Negative
+The onboarding call was very informative and the rep was patient with us.,0.0,Neutral
+"Nothing to complain about, everything works as expected.",0.2755,Positive
+The new update broke our integration and cost us a full day of work.,-0.4215,Negative
+"Fantastic UI, our whole team switched over without any training needed.",0.5574,Positive
+"It's fine, average service, wouldn't say I'm impressed or disappointed.",-0.5932,Negative
+"I am extremely frustrated, we've reported this bug three times now.",-0.5709,Negative
+"Quick turnaround on our support ticket, really appreciate the effort.",0.6901,Positive
+The pricing is a bit high for what we're getting compared to competitors.,0.0,Neutral
+"Excellent product, excellent support, couldn't ask for more.",0.8779,Positive
+Painfully slow load times are making our workflow unbearable.,-0.5267,Negative
+"Solid platform, minor bugs here and there but support fixes them fast.",0.5927,Positive
