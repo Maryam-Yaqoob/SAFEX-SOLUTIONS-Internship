@@ -1,0 +1,17 @@
+Candidate D
+Email: candidateD@example.com | Phone: 0300-0000004
+
+SUMMARY
+Mechanical engineering graduate exploring a transition into data roles,
+self-taught in basic Python.
+
+SKILLS
+AutoCAD, SolidWorks, basic Python, Excel, problem-solving, teamwork
+
+EXPERIENCE
+Mechanical Design Intern - BuildWorks (4 months)
+- Assisted in CAD modeling for industrial components
+- Used Excel for basic material cost tracking
+
+EDUCATION
+BS Mechanical Engineering, 2025

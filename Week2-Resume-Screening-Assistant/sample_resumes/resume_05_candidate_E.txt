@@ -1,0 +1,19 @@
+Candidate E
+Email: candidateE@example.com | Phone: 0300-0000005
+
+SUMMARY
+Business analyst with strong SQL and Power BI experience, some exposure
+to Python for automation.
+
+SKILLS
+SQL, Power BI, Excel, Python (basic), data visualization, stakeholder
+communication, data cleaning
+
+EXPERIENCE
+Business Analyst - RetailPlus (1.5 years)
+- Built Power BI dashboards for sales and inventory tracking
+- Wrote complex SQL queries for reporting
+- Automated recurring reports using Python scripts
+
+EDUCATION
+BBA, 2024

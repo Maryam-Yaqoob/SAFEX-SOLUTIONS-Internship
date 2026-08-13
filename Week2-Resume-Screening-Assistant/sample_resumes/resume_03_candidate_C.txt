@@ -1,0 +1,23 @@
+Candidate C
+Email: candidateC@example.com | Phone: 0300-0000003
+
+SUMMARY
+Data Science student with hands-on machine learning project experience
+and strong statistics background.
+
+SKILLS
+Python, pandas, scikit-learn, SQL, statistics, data visualization,
+machine learning, Git, communication skills
+
+EXPERIENCE
+ML Research Assistant - University Lab (8 months)
+- Built classification models using scikit-learn
+- Performed exploratory data analysis with pandas and seaborn
+- Presented findings to non-technical stakeholders
+
+EDUCATION
+BS Data Science, expected 2027
+
+PROJECTS
+- Sentiment analysis tool using Python and NLP libraries
+- SQL-based sales dashboard for a mock retail dataset

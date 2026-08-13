@@ -1,0 +1,13 @@
+rank,filename,match_score,matched_skills,missing_skills,matched_skill_count
+1,resume_03_candidate_C.txt,22.7,"communication, communication skills, data visualization, git, machine learning, pandas, python, scikit-learn, seaborn, sql, statistics","api integration, data cleaning, excel, matplotlib, power bi, tableau",11
+2,resume_07_candidate_G.pdf,22.18,"api integration, data visualization, git, machine learning, matplotlib, pandas, python, scikit-learn, sql, statistics","data cleaning, excel, power bi, seaborn, tableau",10
+3,resume_01_candidate_A.txt,18.75,"data cleaning, excel, git, matplotlib, pandas, python, scikit-learn, seaborn, sql, statistics","api integration, data visualization, machine learning, power bi, tableau",10
+4,resume_05_candidate_E.txt,14.67,"communication, data cleaning, data visualization, excel, power bi, python, sql","api integration, git, machine learning, matplotlib, pandas, scikit-learn, seaborn, statistics, tableau",7
+5,resume_09_candidate_I.pdf,14.24,"communication, communication skills, data cleaning, data visualization, excel, pandas, python, sql, statistics","api integration, git, machine learning, matplotlib, power bi, scikit-learn, seaborn, tableau",9
+6,resume_11_candidate_K.pdf,11.19,"data visualization, git, pandas, python, sql","api integration, data cleaning, excel, machine learning, matplotlib, power bi, scikit-learn, seaborn, statistics, tableau",5
+7,resume_04_candidate_D.txt,4.68,"excel, python","api integration, data cleaning, data visualization, git, machine learning, matplotlib, pandas, power bi, scikit-learn, seaborn, sql, statistics, tableau",2
+8,resume_08_candidate_H.pdf,3.56,communication,"api integration, data cleaning, data visualization, excel, git, machine learning, matplotlib, pandas, power bi, python, scikit-learn, seaborn, sql, statistics, tableau",1
+9,resume_10_candidate_J.pdf,2.45,"communication, excel","api integration, data cleaning, data visualization, git, machine learning, matplotlib, pandas, power bi, python, scikit-learn, seaborn, sql, statistics, tableau",2
+10,resume_12_candidate_L.pdf,2.17,"communication, excel, sql","api integration, data cleaning, data visualization, git, machine learning, matplotlib, pandas, power bi, python, scikit-learn, seaborn, statistics, tableau",3
+11,resume_06_candidate_F.txt,1.22,"communication, excel","api integration, data cleaning, data visualization, git, machine learning, matplotlib, pandas, power bi, python, scikit-learn, seaborn, sql, statistics, tableau",2
+12,resume_02_candidate_B.txt,0.92,"communication, excel","api integration, data cleaning, data visualization, git, machine learning, matplotlib, pandas, power bi, python, scikit-learn, seaborn, sql, statistics, tableau",2

@@ -1,0 +1,22 @@
+Candidate A
+Email: candidateA@example.com | Phone: 0300-0000001
+
+SUMMARY
+Recent Computer Science graduate with strong Python and data analysis skills.
+Completed 2 internships focused on data cleaning and dashboard building.
+
+SKILLS
+Python, pandas, numpy, SQL, matplotlib, seaborn, Excel, statistics, Git
+
+EXPERIENCE
+Data Analyst Intern - TechCorp (6 months)
+- Cleaned and analyzed large datasets using pandas
+- Built dashboards in matplotlib and seaborn to report weekly KPIs
+- Wrote SQL queries to extract data from PostgreSQL databases
+
+EDUCATION
+BS Computer Science, 2026
+
+PROJECTS
+- Built a student performance prediction model using scikit-learn
+- Automated a monthly Excel reporting pipeline in Python
