@@ -1,0 +1,29 @@
+{
+  "job_id": "J001",
+  "note": "Author's own rough labels for sanity-checking rankings. NOT ground truth. Never send to the LLM.",
+  "tiers": {
+    "C001": "strong",
+    "C002": "strong",
+    "C003": "strong",
+    "C004": "medium",
+    "C005": "medium",
+    "C006": "medium",
+    "C007": "medium",
+    "C008": "weak",
+    "C009": "weak",
+    "C010": "weak",
+    "C011": "weak",
+    "C012": "strong"
+  },
+  "notes": {
+    "C004": "Missing e-commerce platform and fulfilment experience",
+    "C005": "Missing SQL",
+    "C006": "Missing inventory and fulfilment analysis",
+    "C007": "Below the 2-year minimum but relevant skills",
+    "C008": "Strong technically but off-domain",
+    "C009": "Fresh graduate; optional fields missing (summary, location, certifications)",
+    "C010": "Wrong function (support, not analytics); education missing",
+    "C011": "Keyword stuffer: 33 skills, 1 year, vague experience",
+    "C012": "Strong match described in synonyms with little exact keyword overlap"
+  }
+}

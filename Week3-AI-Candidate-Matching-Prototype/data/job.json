@@ -1,0 +1,32 @@
+{
+  "job_id": "J001",
+  "title": "E-commerce Operations Analyst",
+  "company": "Brightcart (fictional online retailer)",
+  "seniority": "Mid-level",
+  "summary": "Analyse order, inventory and fulfilment data for an online retailer to find bottlenecks, track KPIs and support weekly trading decisions across our own web store and third-party marketplaces.",
+  "responsibilities": [
+    "Build and maintain weekly KPI dashboards for orders, returns, stock-outs and delivery times",
+    "Write SQL queries to investigate fulfilment delays and inventory gaps",
+    "Reconcile sales and stock data across the web store and marketplace channels",
+    "Present findings and recommendations to category and operations managers"
+  ],
+  "must_have_skills": [
+    "SQL",
+    "Advanced Excel or Google Sheets",
+    "KPI dashboards and reporting",
+    "E-commerce platform experience (Shopify or marketplace seller tools)",
+    "Inventory and order-fulfilment analysis"
+  ],
+  "nice_to_have_skills": [
+    "Power BI or Tableau",
+    "Python for data analysis",
+    "A/B testing",
+    "Google Analytics",
+    "Demand forecasting",
+    "ERP systems (NetSuite, SAP)"
+  ],
+  "min_years_experience": 2,
+  "education_preference": "Bachelor's degree in business, statistics, engineering or a related field",
+  "location": "Lahore, Pakistan",
+  "remote_policy": "Hybrid (3 days on-site)"
+}
