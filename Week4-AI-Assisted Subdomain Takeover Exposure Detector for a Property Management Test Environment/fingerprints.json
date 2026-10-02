@@ -1,0 +1,33 @@
+{
+  "_note": "Provider signatures modelled on the community 'can-i-take-over-xyz' list. Verify against the current list before relying on them: providers change their error pages and claim rules over time.",
+  "providers": [
+    {
+      "name": "GitHub Pages",
+      "cname_suffixes": ["github.io"],
+      "http_fingerprints": ["There isn't a GitHub Pages site here"],
+      "http_fingerprint_status": [404],
+      "nxdomain_means_takeover": false
+    },
+    {
+      "name": "Amazon S3",
+      "cname_suffixes": ["s3.amazonaws.com"],
+      "http_fingerprints": ["NoSuchBucket", "The specified bucket does not exist"],
+      "http_fingerprint_status": [404],
+      "nxdomain_means_takeover": false
+    },
+    {
+      "name": "Heroku",
+      "cname_suffixes": ["herokuapp.com"],
+      "http_fingerprints": ["No such app"],
+      "http_fingerprint_status": [404],
+      "nxdomain_means_takeover": false
+    },
+    {
+      "name": "Microsoft Azure App Service",
+      "cname_suffixes": ["azurewebsites.net"],
+      "http_fingerprints": [],
+      "http_fingerprint_status": [],
+      "nxdomain_means_takeover": true
+    }
+  ]
+}

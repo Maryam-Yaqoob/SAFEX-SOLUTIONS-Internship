@@ -1,0 +1,205 @@
+{
+  "scanner_version": "1.1-tuned",
+  "scan_time_utc": "2026-09-25T05:31:36+00:00",
+  "lab_domain": "pms-lab.test",
+  "results": [
+    {
+      "target": "http://portal.pms-lab.test",
+      "hostname": "portal.pms-lab.test",
+      "verdict": "NOT_VULNERABLE",
+      "provider": null,
+      "cname_chain": [],
+      "dns_state": "OK",
+      "http": null,
+      "matched_fingerprint": null,
+      "evidence": [
+        "No CNAME; resolves directly (OK: 127.0.0.1). No third-party dependency."
+      ],
+      "ai_interpretation": {
+        "source": "Template explanation (no LLM used)",
+        "model": null,
+        "explanation": "The subdomain resolves and serves content that does not match any known 'unclaimed resource' signature. No takeover exposure is indicated by this check.",
+        "suggested_verdict": null,
+        "confidence": null,
+        "next_steps": [
+          "No action required for this finding.",
+          "Re-scan periodically in case the DNS record changes later."
+        ],
+        "note": "LLM call failed (HTTPError HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/); used template fallback."
+      }
+    },
+    {
+      "target": "http://docs.pms-lab.test",
+      "hostname": "docs.pms-lab.test",
+      "verdict": "CONFIRMED",
+      "provider": "Microsoft Azure App Service",
+      "cname_chain": [
+        "pms-docs-old.azurewebsites.net"
+      ],
+      "dns_state": "NXDOMAIN",
+      "http": null,
+      "matched_fingerprint": null,
+      "evidence": [
+        "CNAME chain: docs.pms-lab.test -> pms-docs-old.azurewebsites.net",
+        "Target belongs to provider: Microsoft Azure App Service.",
+        "CNAME target 'pms-docs-old.azurewebsites.net' does not exist (NXDOMAIN): dangling record.",
+        "Microsoft Azure App Service names can be claimed when unregistered, so this is takeover-exposed."
+      ],
+      "ai_interpretation": {
+        "source": "Template explanation (no LLM used)",
+        "model": null,
+        "explanation": "The scanner matched a known hosting-provider 'unclaimed resource' signature, or found a dangling DNS target for a provider where an unregistered name can be claimed. Treat this as a confirmed subdomain takeover exposure until it is manually verified.",
+        "suggested_verdict": null,
+        "confidence": null,
+        "next_steps": [
+          "Remove or repoint the dangling DNS record immediately.",
+          "Re-claim the resource on the provider before restoring the record, or delete the record permanently.",
+          "Audit other subdomains for the same decommissioning gap.",
+          "Add this hostname to a DNS-inventory / decommission checklist."
+        ],
+        "note": "LLM call failed (HTTPError HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/); used template fallback."
+      }
+    },
+    {
+      "target": "http://blog.pms-lab.test",
+      "hostname": "blog.pms-lab.test",
+      "verdict": "CONFIRMED",
+      "provider": "Amazon S3",
+      "cname_chain": [
+        "pms-blog-old.s3.amazonaws.com"
+      ],
+      "dns_state": "OK",
+      "http": {
+        "status": 404,
+        "server": "AmazonS3",
+        "body_length": 235,
+        "body_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Error><Code>NoSuchBucket</Code><Message>The specified bucket does not exist</Message><BucketName>pms-blog-old</BucketName><RequestId>LAB0000000000001</RequestId><HostId>lab-mock</HostId></Error>\n"
+      },
+      "matched_fingerprint": "NoSuchBucket",
+      "evidence": [
+        "CNAME chain: blog.pms-lab.test -> pms-blog-old.s3.amazonaws.com",
+        "Target belongs to provider: Amazon S3.",
+        "CNAME target 'pms-blog-old.s3.amazonaws.com' resolves; probing HTTP.",
+        "HTTP 404 from Server='AmazonS3', 235 bytes.",
+        "Response body contains the unclaimed-resource signature 'NoSuchBucket'."
+      ],
+      "ai_interpretation": {
+        "source": "Template explanation (no LLM used)",
+        "model": null,
+        "explanation": "The scanner matched a known hosting-provider 'unclaimed resource' signature, or found a dangling DNS target for a provider where an unregistered name can be claimed. Treat this as a confirmed subdomain takeover exposure until it is manually verified.",
+        "suggested_verdict": null,
+        "confidence": null,
+        "next_steps": [
+          "Remove or repoint the dangling DNS record immediately.",
+          "Re-claim the resource on the provider before restoring the record, or delete the record permanently.",
+          "Audit other subdomains for the same decommissioning gap.",
+          "Add this hostname to a DNS-inventory / decommission checklist."
+        ],
+        "note": "LLM call failed (HTTPError HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/); used template fallback."
+      }
+    },
+    {
+      "target": "http://tenant.pms-lab.test",
+      "hostname": "tenant.pms-lab.test",
+      "verdict": "NOT_VULNERABLE",
+      "provider": "GitHub Pages",
+      "cname_chain": [
+        "pms-tenant.github.io"
+      ],
+      "dns_state": "OK",
+      "http": {
+        "status": 200,
+        "server": "GitHub.com",
+        "body_length": 424,
+        "body_snippet": "<!doctype html>\n<html><head><meta charset=\"utf-8\"><title>PMS Tenant Resources</title></head>\n<body>\n<h1>PMS Tenant Resources</h1>\n<p>Move-in guides, lease FAQs and building rules for tenants.</p>\n<h2>Security notes for our IT team</h2>\n<p>When a hosted site is deleted, visitors may see an error such"
+      },
+      "matched_fingerprint": null,
+      "evidence": [
+        "CNAME chain: tenant.pms-lab.test -> pms-tenant.github.io",
+        "Target belongs to provider: GitHub Pages.",
+        "CNAME target 'pms-tenant.github.io' resolves; probing HTTP.",
+        "HTTP 200 from Server='GitHub.com', 424 bytes.",
+        "Fingerprint text \"There isn't a GitHub Pages site here\" was present in the body but HTTP status 200 is not in the expected unclaimed-resource status(es) [404] for GitHub Pages; not counted as a match (Stage 6 tuning to prevent false positives).",
+        "Page served normally and no unclaimed-resource signature found."
+      ],
+      "ai_interpretation": {
+        "source": "Template explanation (no LLM used)",
+        "model": null,
+        "explanation": "The subdomain resolves and serves content that does not match any known 'unclaimed resource' signature. No takeover exposure is indicated by this check.",
+        "suggested_verdict": null,
+        "confidence": null,
+        "next_steps": [
+          "No action required for this finding.",
+          "Re-scan periodically in case the DNS record changes later."
+        ],
+        "note": "LLM call failed (HTTPError HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/); used template fallback."
+      }
+    },
+    {
+      "target": "http://legacy.pms-lab.test",
+      "hostname": "legacy.pms-lab.test",
+      "verdict": "AMBIGUOUS",
+      "provider": "Heroku",
+      "cname_chain": [
+        "pms-legacy.herokuapp.com"
+      ],
+      "dns_state": "OK",
+      "http": {
+        "status": 404,
+        "server": "nginx",
+        "body_length": 179,
+        "body_snippet": "<!doctype html>\n<html><head><meta charset=\"utf-8\"><title>404 Not Found</title></head>\n<body><h1>Not Found</h1><p>The requested URL was not found on this server.</p></body></html>\n"
+      },
+      "matched_fingerprint": null,
+      "evidence": [
+        "CNAME chain: legacy.pms-lab.test -> pms-legacy.herokuapp.com",
+        "Target belongs to provider: Heroku.",
+        "CNAME target 'pms-legacy.herokuapp.com' resolves; probing HTTP.",
+        "HTTP 404 from Server='nginx', 179 bytes.",
+        "Error status but no known provider signature; needs interpretation."
+      ],
+      "ai_interpretation": {
+        "source": "Template explanation (no LLM used)",
+        "model": null,
+        "explanation": "The subdomain returned an error response with no known provider signature match. This could be a genuine takeover-exposed page with an unrecognised error format, or an unrelated app-level issue. Manual review is recommended.",
+        "suggested_verdict": "NEEDS_MANUAL_REVIEW",
+        "confidence": null,
+        "next_steps": [
+          "Manually inspect the HTTP response in a browser.",
+          "Check the provider's current 'unclaimed resource' error format.",
+          "Confirm whether the CNAME target is still owned by your organisation.",
+          "Update fingerprints.json if this turns out to be a new provider signature."
+        ],
+        "note": "LLM call failed (HTTPError HTTP 429: You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/); used template fallback."
+      }
+    },
+    {
+      "target": "http://example.com",
+      "hostname": "example.com",
+      "verdict": "SKIPPED_UNAUTHORIZED",
+      "provider": null,
+      "cname_chain": [],
+      "dns_state": null,
+      "http": null,
+      "matched_fingerprint": null,
+      "evidence": [
+        "'example.com' is outside the authorized lab zone 'pms-lab.test'; no lookups made."
+      ],
+      "ai_interpretation": {
+        "source": "Template explanation (no LLM used)",
+        "model": null,
+        "explanation": "This target is outside the authorized lab zone and was never queried. No DNS or HTTP lookups were performed against it.",
+        "suggested_verdict": null,
+        "confidence": null,
+        "next_steps": [
+          "No action: this target is outside the authorized scope.",
+          "Remove it from targets.txt if it should never be scanned."
+        ],
+        "note": "Unauthorized target: never sent to the LLM."
+      }
+    }
+  ],
+  "ai_interpreter_version": "1.0",
+  "ai_interpretation_time_utc": "2026-09-25T06:57:13+00:00",
+  "ai_interpretation_mode": "template"
+}

@@ -1,0 +1,203 @@
+{
+  "scanner_version": "1.0-baseline",
+  "scan_time_utc": "2026-09-19T09:03:55+00:00",
+  "lab_domain": "pms-lab.test",
+  "results": [
+    {
+      "target": "http://portal.pms-lab.test",
+      "hostname": "portal.pms-lab.test",
+      "verdict": "NOT_VULNERABLE",
+      "provider": null,
+      "cname_chain": [],
+      "dns_state": "OK",
+      "http": null,
+      "matched_fingerprint": null,
+      "evidence": [
+        "No CNAME; resolves directly (OK: 127.0.0.1). No third-party dependency."
+      ],
+      "ai_interpretation": {
+        "source": "AI-assisted interpretation",
+        "model": "gemini-3.6-flash",
+        "explanation": "The subdomain portal.pms-lab.test resolves directly to an IP address (127.0.0.1) without any CNAME records or third-party service dependencies. Because no external cloud resources are pointed to, there is no risk of dangling DNS or subdomain takeover.",
+        "suggested_verdict": null,
+        "confidence": "high",
+        "next_steps": [
+          "Verify 127.0.0.1 is the intended record destination.",
+          "Mark finding as confirmed Not Vulnerable in triage queue.",
+          "Maintain asset inventory for internal DNS records.",
+          "Continue routine DNS monitoring for unexpected CNAME additions."
+        ]
+      }
+    },
+    {
+      "target": "http://docs.pms-lab.test",
+      "hostname": "docs.pms-lab.test",
+      "verdict": "CONFIRMED",
+      "provider": "Microsoft Azure App Service",
+      "cname_chain": [
+        "pms-docs-old.azurewebsites.net"
+      ],
+      "dns_state": "NXDOMAIN",
+      "http": null,
+      "matched_fingerprint": null,
+      "evidence": [
+        "CNAME chain: docs.pms-lab.test -> pms-docs-old.azurewebsites.net",
+        "Target belongs to provider: Microsoft Azure App Service.",
+        "CNAME target 'pms-docs-old.azurewebsites.net' does not exist (NXDOMAIN): dangling record.",
+        "Microsoft Azure App Service names can be claimed when unregistered, so this is takeover-exposed."
+      ],
+      "ai_interpretation": {
+        "source": "AI-assisted interpretation",
+        "model": "gemini-3.6-flash",
+        "explanation": "The CNAME record points to an unregistered Azure App Service (pms-docs-old.azurewebsites.net) returning NXDOMAIN. Because the resource name is available in Azure, an attacker could claim it to control content on docs.pms-lab.test. The evidence directly aligns with the CONFIRMED scanner verdict.",
+        "suggested_verdict": null,
+        "confidence": "high",
+        "next_steps": [
+          "Remove the dangling CNAME record from the DNS zone.",
+          "Re-create the Azure App Service resource if still required.",
+          "Audit DNS zone files for obsolete or unlinked CNAMEs.",
+          "Enforce automated monitoring for dangling DNS entries."
+        ]
+      }
+    },
+    {
+      "target": "http://blog.pms-lab.test",
+      "hostname": "blog.pms-lab.test",
+      "verdict": "CONFIRMED",
+      "provider": "Amazon S3",
+      "cname_chain": [
+        "pms-blog-old.s3.amazonaws.com"
+      ],
+      "dns_state": "OK",
+      "http": {
+        "status": 404,
+        "server": "AmazonS3",
+        "body_length": 235,
+        "body_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<Error><Code>NoSuchBucket</Code><Message>The specified bucket does not exist</Message><BucketName>pms-blog-old</BucketName><RequestId>LAB0000000000001</RequestId><HostId>lab-mock</HostId></Error>\n"
+      },
+      "matched_fingerprint": "NoSuchBucket",
+      "evidence": [
+        "CNAME chain: blog.pms-lab.test -> pms-blog-old.s3.amazonaws.com",
+        "Target belongs to provider: Amazon S3.",
+        "CNAME target 'pms-blog-old.s3.amazonaws.com' resolves; probing HTTP.",
+        "HTTP 404 from Server='AmazonS3', 235 bytes.",
+        "Response body contains the unclaimed-resource signature 'NoSuchBucket'."
+      ],
+      "ai_interpretation": {
+        "source": "AI-assisted interpretation",
+        "model": "gemini-3.6-flash",
+        "explanation": "The subdomain blog.pms-lab.test points via CNAME to an uncreated Amazon S3 bucket (pms-blog-old), confirmed by the HTTP 404 NoSuchBucket error response. An attacker could register this S3 bucket name in AWS to host arbitrary content under the blog.pms-lab.test domain.",
+        "suggested_verdict": null,
+        "confidence": "high",
+        "next_steps": [
+          "Remove the dangling CNAME record from DNS.",
+          "Claim the S3 bucket 'pms-blog-old' in AWS if still required.",
+          "Audit DNS records for other orphaned cloud resources.",
+          "Implement automated DNS cleanup in decommissioning workflows."
+        ]
+      }
+    },
+    {
+      "target": "http://tenant.pms-lab.test",
+      "hostname": "tenant.pms-lab.test",
+      "verdict": "CONFIRMED",
+      "provider": "GitHub Pages",
+      "cname_chain": [
+        "pms-tenant.github.io"
+      ],
+      "dns_state": "OK",
+      "http": {
+        "status": 200,
+        "server": "GitHub.com",
+        "body_length": 424,
+        "body_snippet": "<!doctype html>\n<html><head><meta charset=\"utf-8\"><title>PMS Tenant Resources</title></head>\n<body>\n<h1>PMS Tenant Resources</h1>\n<p>Move-in guides, lease FAQs and building rules for tenants.</p>\n<h2>Security notes for our IT team</h2>\n<p>When a hosted site is deleted, visitors may see an error such"
+      },
+      "matched_fingerprint": "There isn't a GitHub Pages site here",
+      "evidence": [
+        "CNAME chain: tenant.pms-lab.test -> pms-tenant.github.io",
+        "Target belongs to provider: GitHub Pages.",
+        "CNAME target 'pms-tenant.github.io' resolves; probing HTTP.",
+        "HTTP 200 from Server='GitHub.com', 424 bytes.",
+        "Response body contains the unclaimed-resource signature \"There isn't a GitHub Pages site here\"."
+      ],
+      "ai_interpretation": {
+        "source": "AI-assisted interpretation",
+        "model": "gemini-3.6-flash",
+        "explanation": "The scanner flagged this as CONFIRMED based on an unclaimed-resource fingerprint, but the HTTP body snippet shows a normal 200 OK page serving legitimate 'PMS Tenant Resources' content. Because the actual response content contradicts the scanner's verdict, this finding appears to be a false positive.",
+        "suggested_verdict": null,
+        "confidence": "low",
+        "next_steps": [
+          "Manually browse tenant.pms-lab.test to verify actual page contents.",
+          "Verify the custom domain mapping in the target GitHub Pages repository.",
+          "Review scanner detection rules to understand why the signature matched.",
+          "Keep the DNS CNAME record monitored until configuration is confirmed."
+        ]
+      }
+    },
+    {
+      "target": "http://legacy.pms-lab.test",
+      "hostname": "legacy.pms-lab.test",
+      "verdict": "AMBIGUOUS",
+      "provider": "Heroku",
+      "cname_chain": [
+        "pms-legacy.herokuapp.com"
+      ],
+      "dns_state": "OK",
+      "http": {
+        "status": 404,
+        "server": "nginx",
+        "body_length": 179,
+        "body_snippet": "<!doctype html>\n<html><head><meta charset=\"utf-8\"><title>404 Not Found</title></head>\n<body><h1>Not Found</h1><p>The requested URL was not found on this server.</p></body></html>\n"
+      },
+      "matched_fingerprint": null,
+      "evidence": [
+        "CNAME chain: legacy.pms-lab.test -> pms-legacy.herokuapp.com",
+        "Target belongs to provider: Heroku.",
+        "CNAME target 'pms-legacy.herokuapp.com' resolves; probing HTTP.",
+        "HTTP 404 from Server='nginx', 179 bytes.",
+        "Error status but no known provider signature; needs interpretation."
+      ],
+      "ai_interpretation": {
+        "source": "AI-assisted interpretation",
+        "model": "gemini-3.6-flash",
+        "explanation": "The domain points to Heroku via CNAME and returns a 404 status. However, the server header 'nginx' and HTML body show a generic 404 error rather than Heroku's signature 'No such app' error page. This usually means the Heroku application exists but returned a 404 for the root path, making takeover unlikely, though manual verification is recommended.",
+        "suggested_verdict": "NEEDS_MANUAL_REVIEW",
+        "confidence": "medium",
+        "next_steps": [
+          "Verify if 'pms-legacy.herokuapp.com' is an active app in your Heroku dashboard.",
+          "Inspect HTTP responses for custom headers or routes configured on the Heroku app.",
+          "Attempt adding the domain in Heroku CLI/dashboard to check for registration conflict.",
+          "Remove the CNAME DNS record if the Heroku service is no longer required."
+        ]
+      }
+    },
+    {
+      "target": "http://example.com",
+      "hostname": "example.com",
+      "verdict": "SKIPPED_UNAUTHORIZED",
+      "provider": null,
+      "cname_chain": [],
+      "dns_state": null,
+      "http": null,
+      "matched_fingerprint": null,
+      "evidence": [
+        "'example.com' is outside the authorized lab zone 'pms-lab.test'; no lookups made."
+      ],
+      "ai_interpretation": {
+        "source": "Template explanation (no LLM used)",
+        "model": null,
+        "explanation": "This target is outside the authorized lab zone and was never queried. No DNS or HTTP lookups were performed against it.",
+        "suggested_verdict": null,
+        "confidence": null,
+        "next_steps": [
+          "No action: this target is outside the authorized scope.",
+          "Remove it from targets.txt if it should never be scanned."
+        ],
+        "note": "Unauthorized target: never sent to the LLM."
+      }
+    }
+  ],
+  "ai_interpreter_version": "1.0",
+  "ai_interpretation_time_utc": "2026-09-20T08:24:15+00:00",
+  "ai_interpretation_mode": "llm"
+}

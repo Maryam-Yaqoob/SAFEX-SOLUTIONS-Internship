@@ -1,0 +1,15 @@
+# Byte-compiled / cache
+__pycache__/
+*.pyc
+
+# Secrets - never commit API keys or credentials
+.env
+*.key
+
+# Local backups created by guarded patch scripts (these live in $env:TEMP normally,
+# but ignore them here too in case one ever lands in the project folder)
+*.bak
+
+# Editor/OS cruft
+.vscode/
+.DS_Store

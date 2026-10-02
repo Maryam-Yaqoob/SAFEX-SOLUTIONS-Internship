@@ -1,0 +1,8 @@
+# Authorized lab targets only (fake zone pms-lab.test, served by the local lab).
+http://portal.pms-lab.test
+http://docs.pms-lab.test
+http://blog.pms-lab.test
+http://tenant.pms-lab.test
+http://legacy.pms-lab.test
+# Out-of-scope example: the scanner must refuse this one without any network traffic.
+http://example.com
